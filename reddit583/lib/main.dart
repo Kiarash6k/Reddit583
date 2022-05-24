@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AnimatedSplashScreen(
-        splash: Icons.reddit,
+        splash: Image.asset('assets/images/redit.jpeg'),
         duration: 1700,
         splashTransition: SplashTransition.slideTransition,
         backgroundColor: Colors.red,
