@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
       home: AnimatedSplashScreen(
         splash: Image.asset('assets/images/redit.jpeg'),
         duration: 1700,
-        splashTransition: SplashTransition.slideTransition,
-        backgroundColor: Colors.red,
+        splashTransition: SplashTransition.decoratedBoxTransition,
+        backgroundColor: Color.fromARGB(255, 32, 35, 34),
         nextScreen: Scaffold(),
       ),
     );
