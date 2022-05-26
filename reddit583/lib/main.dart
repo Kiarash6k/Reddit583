@@ -1,5 +1,6 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'Screens/WelcomeScreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         duration: 1700,
         splashTransition: SplashTransition.decoratedBoxTransition,
         backgroundColor: Color.fromARGB(255, 32, 35, 34),
-        nextScreen: Scaffold(),
+        nextScreen: WelcomeScreen(),
       ),
     );
   }
