@@ -31,6 +31,27 @@ class WelcomeScreen extends StatelessWidget {
                           },
                           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 110),
                         )),
+                    Container(
+                        margin: EdgeInsets.only(top: 22),
+                        child: RaisedButton(
+                          elevation: 15.0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                            side: BorderSide(color: Colors.white),
+                          ),
+                          child: Text('Signup'),
+                          textColor: Colors.red,
+                          color: Colors.white,
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return Scaffold();
+                              },
+                            ),
+                            );
+                          },
+                          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 110),
+                        )),
                   ],
                 )
             )
