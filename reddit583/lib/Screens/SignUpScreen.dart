@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'LoginScreen.dart';
+
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key key}) : super(key: key);
 
@@ -189,6 +193,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   );
                                 },),
                             ])),
+                    Divider(
+                      color: Colors.black,
+                      indent: 300,
+                      endIndent: 300,
+                      thickness: 0.2,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: SignInButton(
+                        Buttons.Google,
+                        text: 'Sign up with Google',
+                        onPressed: () {},
+                      ),),
+                    Container(
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: SignInButton(
+                        Buttons.Apple,
+                        text: 'Sign up with Apple',
+                        onPressed: () {},
+                      ),),
+                    Container(
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: SignInButton(
+                        Buttons.Facebook,
+                        text: 'Sign up with Facebook',
+                        onPressed: () {},
+                      ),)
                   ]
               ),
             )
