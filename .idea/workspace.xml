@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75b98bcc-2dfc-42df-b0ae-7d66df331e29" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/reddit583/lib/Screens/SignUpScreen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reddit583/lib/Screens/LoginScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/reddit583/lib/Screens/LoginScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reddit583/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/reddit583/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,7 @@
       <updated>1653426262085</updated>
       <workItem from="1653426263266" duration="2235000" />
       <workItem from="1653634936857" duration="89000" />
-      <workItem from="1653649946705" duration="1478000" />
+      <workItem from="1653649946705" duration="1843000" />
     </task>
     <servers />
   </component>

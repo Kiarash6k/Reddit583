@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'SignUpScreen.dart';
-
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key key}) : super(key: key);
@@ -141,6 +141,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       endIndent: 300,
                       thickness: 0.2,
                     ),
+                    Container(
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: SignInButton(
+                        Buttons.Google,
+                        onPressed: () {},
+                      ),),
+                    Container(
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: SignInButton(
+                        Buttons.Apple,
+                        onPressed: () {},
+                      ),),
+                    Container(
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: SignInButton(
+                        Buttons.Facebook,
+                        onPressed: () {},
+                      ),)
                   ]
               ),
             )
