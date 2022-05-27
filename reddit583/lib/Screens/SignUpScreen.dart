@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'LoginScreen.dart';
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key key}) : super(key: key);
 
@@ -129,6 +129,66 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         )
                     ),
+                    Container(
+                        margin: EdgeInsets.fromLTRB(42.0, 20.0, 42.0, 0.0),
+                        child: MaterialButton(
+                          elevation: 12.0,
+                          height: 60,
+                          minWidth: 420,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                          onPressed: () {
+                            String username = user.text;
+                            String emailAddress = email.text;
+                            String password = pass.text;
+                            String confirmedPassword = confirmPass.text;
+                            FocusScope.of(context).requestFocus(FocusNode());
+                            setState(() {
+                              if(username.length < 4) {
+                                userError = 'username must be at least 4 characters';
+                              } else if(password.length < 8) {
+                                userError = null;
+                                emailError = null;
+                                confirmPassError = null;
+                                passError = 'password must be at least 8 characters';
+                              } else if (!(password == confirmedPassword)) {
+                                userError = null;
+                                emailError = null;
+                                passError = null;
+                                confirmPassError = 'does not match your password';
+                              }else {
+                                userError = null;
+                                emailError = null;
+                                passError = null;
+                                confirmPassError = null;
+                                alarm = SnackBar(content: Text('Signup successful. welcome ${user.text}. have fun!'));
+                                scaffoldKey.currentState.showSnackBar(alarm);
+                              }
+                            });
+                            Scaffold();
+                          },
+                          color: Colors.black,
+                          child: Text('Sign up',
+                              style: TextStyle(
+                                color: Colors.white,
+                              )),
+                        )),
+                    Container(
+                        margin: EdgeInsets.only(top: 20,),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Already have an account ? ', style: TextStyle(color: Colors.black,),),
+                              GestureDetector(
+                                child: Text('Login', style: TextStyle(color: Colors.black12,)),
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return LoginScreen();
+                                    },
+                                  ),
+                                  );
+                                },),
+                            ])),
                   ]
               ),
             )
