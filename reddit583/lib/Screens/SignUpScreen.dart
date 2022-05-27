@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Home_page.dart';
 import 'LoginScreen.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -26,12 +27,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return SafeArea(child: 
+     MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             key: scaffoldKey,
             backgroundColor: Colors.deepOrange,
             appBar: AppBar(
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
               backgroundColor: Colors.black,
               foregroundColor: Colors.red,
               title: Text('Create a new account'),
@@ -41,7 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Column(
                   children: <Widget>[
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 82.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(82.0, 40.0, 82.0, 0.0),
                         child: TextField(
                           controller: user,
                           textAlign: TextAlign.center,
@@ -57,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         )),
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 20.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(82.0, 10.0, 82.0, 0.0),
                         child: TextField(
                           controller: email,
                           textAlign: TextAlign.center,
@@ -73,7 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         )),
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 20.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(82.0, 10.0, 82.0, 0.0),
                         child: TextField(
                           controller: pass,
                           obscureText: isHidden,
@@ -99,7 +107,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )
                     ),
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 20.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(82.0, 10.0, 82.0, 0.0),
                         child: TextField(
                           controller: confirmPass,
                           obscureText: isHidden,
@@ -125,10 +133,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )
                     ),
                     Container(
-                        margin: EdgeInsets.fromLTRB(42.0, 20.0, 42.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(42.0, 10.0, 42.0, 0.0),
                         child: MaterialButton(
                           elevation: 12.0,
-                          height: 60,
+                          height: 30,
                           minWidth: 420,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
                           onPressed: () {
@@ -159,7 +167,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 scaffoldKey.currentState.showSnackBar(alarm);
                               }
                             });
-                            MyHomePage(title: 'reddit',);
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
+                            
                           },
                           color: Colors.black,
                           child: Text('Sign up',
@@ -168,7 +177,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               )),
                         )),
                     Container(
-                        margin: EdgeInsets.only(top: 20,),
+                        margin: EdgeInsets.only(top: 10,),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -191,21 +200,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       thickness: 0.2,
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 20.0),
+                      margin: EdgeInsets.only(top: 10.0),
                       child: SignInButton(
                         Buttons.Google,
                         text: 'Sign up with Google',
                         onPressed: () {},
                       ),),
                     Container(
-                      margin: EdgeInsets.only(top: 20.0),
+                      margin: EdgeInsets.only(top: 10.0),
                       child: SignInButton(
                         Buttons.Apple,
                         text: 'Sign up with Apple',
                         onPressed: () {},
                       ),),
                     Container(
-                      margin: EdgeInsets.only(top: 20.0),
+                      margin: EdgeInsets.only(top: 10.0),
                       child: SignInButton(
                         Buttons.Facebook,
                         text: 'Sign up with Facebook',
@@ -215,6 +224,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             )
         )
-    );
+     ) );
   }
 }

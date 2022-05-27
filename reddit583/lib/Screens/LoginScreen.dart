@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Home_page.dart';
 import 'SignUpScreen.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -30,12 +31,19 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+
+    return SafeArea(child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             key: scaffoldKey,
             backgroundColor: Colors.deepOrange,
             appBar: AppBar(
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
               title: Text('Login to your account'),
               centerTitle: true,
               backgroundColor: Colors.black,
@@ -45,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                   children: <Widget>[
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 220.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(82.0, 60.0, 82.0, 0.0),
                         child: TextField(
                           controller: user,
                           textAlign: TextAlign.center,
@@ -110,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 scaffoldKey.currentState.showSnackBar(alarm);
                               }
                             });
-                            Scaffold();
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                           },
                           color: Colors.black,
                           child: Text('Login',
@@ -127,10 +135,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               GestureDetector(
                                 child: Text('Sign up', style: TextStyle(color: Colors.cyan,)),
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return Scaffold();
-                                    },
+                                  Navigator.push(context,
+                                   MaterialPageRoute(builder: (context) => SignUpScreen()
                                   ),
                                   );
                                 },),
@@ -163,6 +169,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             )
         )
-    );
+    ));
   }
 }

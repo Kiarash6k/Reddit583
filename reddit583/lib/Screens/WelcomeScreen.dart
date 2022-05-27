@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:reddit583/Screens/Home_page.dart';
+import 'package:reddit583/Screens/LoginScreen.dart';
+import 'package:reddit583/Screens/SignUpScreen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -88,7 +90,7 @@ class WelcomeScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()),
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
                       );
                     },
                     padding:
@@ -121,7 +123,7 @@ class WelcomeScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()),
+                        MaterialPageRoute(builder: (context) => SignUpScreen()),
                       );
                     },
                     padding:
