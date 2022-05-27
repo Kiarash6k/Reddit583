@@ -32,7 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Colors.deepOrange,
+            backgroundColor: Color.fromARGB(255, 15, 4, 76),
             appBar: AppBar(
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_ios),
@@ -40,23 +40,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Navigator.pop(context);
                 },
               ),
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.red,
+              backgroundColor:Color.fromARGB(237, 255, 255, 255), 
+              foregroundColor: Color.fromARGB(255, 42, 42, 42),
               title: Text('Create a new account'),
               centerTitle: true,
             ),
             body: Container(
+              child: Container(
+                margin: EdgeInsets.only(top: 20,right: 40,left: 40,bottom: 10),
+                color: Color.fromARGB(165, 255, 254, 254),
               child: Column(
                   children: <Widget>[
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 40.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(40.0, 30.0, 40.0, 0.0),
                         child: TextField(
                           controller: user,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
-                            icon: Icon(Icons.person, color: Colors.black,),
                             errorText: userError,
-                            hintText: 'username',
+                            hintText: 'User Name',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(color: Colors.black, width: 1.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -65,14 +67,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         )),
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 10.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 0.0),
                         child: TextField(
                           controller: email,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
-                            icon: Icon(Icons.person, color: Colors.black,),
+
                             errorText: emailError,
-                            hintText: 'email',
+                            hintText: 'Email',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(color: Colors.black, width: 1.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -81,13 +83,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         )),
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 10.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 0.0),
                         child: TextField(
                           controller: pass,
                           obscureText: isHidden,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
-                            icon: Icon(Icons.lock, color: Colors.black),
+
                             suffixIcon: InkWell(
                               onTap: () => {
                                 setState(() {
@@ -97,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: Icon(Icons.visibility, color: Colors.black,),
                             ),
                             errorText: passError,
-                            hintText: 'password',
+                            hintText: 'Password',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(color: Colors.black, width: 1.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -107,13 +109,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )
                     ),
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 10.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 0.0),
                         child: TextField(
                           controller: confirmPass,
                           obscureText: isHidden,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
-                            icon: Icon(Icons.lock, color: Colors.black),
                             suffixIcon: InkWell(
                               onTap: () => {
                                 setState(() {
@@ -123,7 +124,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               child: Icon(Icons.visibility, color: Colors.black,),
                             ),
                             errorText: confirmPassError,
-                            hintText: 'confirm password',
+                            hintText: 'Confirm',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(color: Colors.black, width: 1.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -171,19 +172,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             
                           },
                           color: Colors.black,
-                          child: Text('Sign up',
-                              style: TextStyle(
-                                color: Colors.white,
-                              )),
+                          child:  Icon(Icons.arrow_right_alt_sharp ,color: Colors.white,size: 50,),
                         )),
                     Container(
-                        margin: EdgeInsets.only(top: 10,),
+                        margin: EdgeInsets.only(top: 5,),
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text('Already have an account ? ', style: TextStyle(color: Colors.black,),),
                               GestureDetector(
-                                child: Text('Login', style: TextStyle(color: Colors.black12,)),
+                                child: Text('Login', style: TextStyle(color: Color.fromARGB(239, 11, 1, 110),shadows: [Shadow(color: Colors.black, offset: Offset(1.0, 1.0), blurRadius: 2.0)],),),
                                 onTap: () {
                                   Navigator.push(context, MaterialPageRoute(
                                     builder: (context) {
@@ -224,6 +222,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
             )
         )
-     ) );
+     ) ));
   }
 }

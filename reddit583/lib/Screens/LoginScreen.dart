@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Colors.deepOrange,
+            backgroundColor: Color.fromARGB(255, 15, 4, 76),
             appBar: AppBar(
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_ios),
@@ -44,38 +44,41 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.pop(context);
                 },
               ),
-              title: Text('Login to your account'),
+              title: Text('Login'),
               centerTitle: true,
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.red,
+              backgroundColor:Color.fromARGB(237, 255, 255, 255),
+              foregroundColor: Color.fromARGB(255, 42, 42, 42),
             ),
             body: Container(
-              child: Column(
+              
+              child: Container(
+                margin: EdgeInsets.only(top: 30,right: 40,left: 40,bottom: 20),
+                color: Color.fromARGB(165, 255, 254, 254),
+              child : Column(
                   children: <Widget>[
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 60.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(40.0, 60.0, 40.0, 0.0),
                         child: TextField(
                           controller: user,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
-                            icon: Icon(Icons.person, color: Colors.black,),
                             errorText: userError,
-                            hintText: 'email or username',
+                            hintText: 'Email or Username',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(color: Colors.black, width: 1.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(color: Colors.black, width: 1.5)),
-                            contentPadding: EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
+                            contentPadding: EdgeInsets.fromLTRB(32.0, 14.0, 16.0, 14.0),
                           ),
                         )),
                     Container(
-                        margin: EdgeInsets.fromLTRB(82.0, 20.0, 82.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(40.0, 20.0, 40.0, 0.0),
                         child: TextField(
                           controller: pass,
                           obscureText: isHidden,
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
-                            icon: Icon(Icons.lock, color: Colors.black),
+                            
                             suffixIcon: InkWell(
                               onTap: () => {
                                 setState(() {
@@ -98,8 +101,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         margin: EdgeInsets.fromLTRB(42.0, 20.0, 42.0, 0.0),
                         child: MaterialButton(
                           elevation: 12.0,
-                          height: 60,
-                          minWidth: 420,
+                          height: 30,
+                          minWidth: 250,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
                           onPressed: () {
                             String username = user.text;
@@ -121,10 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                           },
                           color: Colors.black,
-                          child: Text('Login',
-                              style: TextStyle(
-                                color: Colors.white,
-                              )),
+                          child: Icon(Icons.arrow_right_alt_sharp ,color: Colors.white,size: 50,),
                         )),
                     Container(
                         margin: EdgeInsets.only(top: 20,),
@@ -133,7 +133,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             children: [
                               Text('Not a member yet ? ', style: TextStyle(color: Colors.black,),),
                               GestureDetector(
-                                child: Text('Sign up', style: TextStyle(color: Colors.cyan,)),
+                                child: Text('Sign up', style: TextStyle(color: Color.fromARGB(255, 0, 64, 73),shadows: [
+                                  Shadow(
+                                    blurRadius: 10.0,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    offset: Offset(5.0, 5.0),
+                                  ),
+                                ],),),
                                 onTap: () {
                                   Navigator.push(context,
                                    MaterialPageRoute(builder: (context) => SignUpScreen()
@@ -147,20 +153,35 @@ class _LoginScreenState extends State<LoginScreen> {
                       endIndent: 300,
                       thickness: 0.2,
                     ),
+                    GestureDetector(
+                                child: Text('Forgot Password?', style: TextStyle(color: Color.fromARGB(255, 0, 64, 73),shadows: [
+                                  Shadow(
+                                    blurRadius: 10.0,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    offset: Offset(5.0, 5.0),
+                                  ),
+                                ],),),
+                                onTap: () {
+                                  Navigator.push(context,
+                                   MaterialPageRoute(builder: (context) => SignUpScreen() //check//
+                                  ),
+                                  );
+                                },),
+                    
                     Container(
-                      margin: EdgeInsets.only(top: 20.0),
+                      margin: EdgeInsets.only(top: 15.0),
                       child: SignInButton(
                         Buttons.Google,
                         onPressed: () {},
                       ),),
                     Container(
-                      margin: EdgeInsets.only(top: 20.0),
+                      margin: EdgeInsets.only(top: 10.0),
                       child: SignInButton(
                         Buttons.Apple,
                         onPressed: () {},
                       ),),
                     Container(
-                      margin: EdgeInsets.only(top: 20.0),
+                      margin: EdgeInsets.only(top: 10.0),
                       child: SignInButton(
                         Buttons.Facebook,
                         onPressed: () {},
@@ -169,6 +190,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             )
         )
-    ));
+    )));
   }
 }

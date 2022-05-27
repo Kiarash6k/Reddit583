@@ -14,7 +14,7 @@ class WelcomeScreen extends StatelessWidget {
       child: Scaffold(
          
           appBar: AppBar(
-            backgroundColor: Color.fromARGB(255,59,140,220),
+            backgroundColor:Color.fromARGB(237, 255, 255, 255), 
             title: SizedBox(
               width: 200.0,
               child: DefaultTextStyle(
@@ -23,11 +23,11 @@ class WelcomeScreen extends StatelessWidget {
                   //center
                   fontFamily: 'Roboto',
                   fontSize: 20,
-                  color: Color.fromARGB(255, 255, 255, 255),
+                  color: Color.fromARGB(255, 12, 0, 107),
                   shadows: [
                     Shadow(
                       blurRadius: 7.0,
-                      color: Colors.white,
+                      color: Color.fromARGB(255, 15, 5, 5),
                       offset: Offset(0, 0),
                     ),
                   ],
@@ -54,14 +54,14 @@ class WelcomeScreen extends StatelessWidget {
         gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Colors.blue, Colors.red])),
+            colors: [Color.fromARGB(255, 0, 39, 72), Color.fromARGB(255, 0, 0, 0)])),
          child :Center(
               child: Column(
             children: [
               
               Container(
 
-                  margin: EdgeInsets.only(top: 300),
+                  margin: EdgeInsets.fromLTRB(20, 100, 20, 40),
                   // ignore: deprecated_member_use
                   child: RaisedButton(
                     elevation: 15.0,
@@ -94,10 +94,10 @@ class WelcomeScreen extends StatelessWidget {
                       );
                     },
                     padding:
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 110),
+                        EdgeInsets.symmetric(vertical: 20, horizontal: 5),
                   )),
               Container(
-                  margin: EdgeInsets.only(top: 22),
+                  margin: EdgeInsets.fromLTRB(20, 100, 20, 40),
                   // ignore: deprecated_member_use
                   child: RaisedButton(
                     elevation: 15.0,
@@ -105,6 +105,8 @@ class WelcomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(18.0),
                       side: BorderSide(color: Colors.white),
                     ),
+                    child: SizedBox(
+                      width: 250.0,
                     child: TextLiquidFill(
                       text: 'SignUp',
                       waveColor: Colors.red,
@@ -117,7 +119,7 @@ class WelcomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                       boxHeight: 60.0,
-                    ),
+                    ),),
                     textColor: Colors.red,
                     color: Colors.white,
                     onPressed: () {
@@ -127,7 +129,7 @@ class WelcomeScreen extends StatelessWidget {
                       );
                     },
                     padding:
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 110),
+                        EdgeInsets.symmetric(vertical: 20, horizontal: 5),
                   )),
             ],
           ))))
