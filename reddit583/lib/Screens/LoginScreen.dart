@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'SignUpScreen.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -85,6 +85,61 @@ class _LoginScreenState extends State<LoginScreen> {
                             contentPadding: EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
                           ),
                         )
+                    ),
+                    Container(
+                        margin: EdgeInsets.fromLTRB(42.0, 20.0, 42.0, 0.0),
+                        child: MaterialButton(
+                          elevation: 12.0,
+                          height: 60,
+                          minWidth: 420,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                          onPressed: () {
+                            String username = user.text;
+                            String password = pass.text;
+                            FocusScope.of(context).requestFocus(FocusNode());
+                            setState(() {
+                              if(username.length < 4) {
+                                userError = 'username must be at least 4 characters';
+                              } else if(password.length < 8) {
+                                userError = null;
+                                passError = 'password must be at least 8 characters';
+                              } else {
+                                userError = null;
+                                passError = null;
+                                alarm = SnackBar(content: Text('Login successful. welcome ${user.text}. have fun!'));
+                                scaffoldKey.currentState.showSnackBar(alarm);
+                              }
+                            });
+                            Scaffold();
+                          },
+                          color: Colors.black,
+                          child: Text('Login',
+                              style: TextStyle(
+                                color: Colors.white,
+                              )),
+                        )),
+                    Container(
+                        margin: EdgeInsets.only(top: 20,),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Not a member yet ? ', style: TextStyle(color: Colors.black,),),
+                              GestureDetector(
+                                child: Text('Sign up', style: TextStyle(color: Colors.cyan,)),
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) {
+                                      return Scaffold();
+                                    },
+                                  ),
+                                  );
+                                },),
+                            ])),
+                    Divider(
+                      color: Colors.black,
+                      indent: 300,
+                      endIndent: 300,
+                      thickness: 0.2,
                     ),
                   ]
               ),
