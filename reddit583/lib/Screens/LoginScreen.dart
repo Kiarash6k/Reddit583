@@ -125,11 +125,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             children: [
                               Text('Not a member yet ? ', style: TextStyle(color: Colors.black,),),
                               GestureDetector(
-                                child: Text('Sign up', style: TextStyle(color: Colors.cyan,)),
+                                child: Text('Sign up', style: TextStyle(color: Colors.black12,)),
                                 onTap: () {
                                   Navigator.push(context, MaterialPageRoute(
                                     builder: (context) {
-                                      return Scaffold();
+                                      return SignUpScreen();
                                     },
                                   ),
                                   );
