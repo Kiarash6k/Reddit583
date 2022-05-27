@@ -1,157 +1,135 @@
-import 'dart:convert';
-
+// ignore_for_file: prefer_const_constructors, file_names, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, unused_label
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-
-import 'LoginScreen.dart';
+import 'package:reddit583/Screens/Home_page.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     theme:
     ThemeData(scaffoldBackgroundColor: Color.fromARGB(255, 205, 28, 28));
-    return Container(
-
-      
-      child: SafeArea(
-        child: Scaffold(
-           
-            appBar: AppBar(
-              backgroundColor: Color.fromARGB(255,59,140,220),
-              title: SizedBox(
-                width: 200.0,
-                child: DefaultTextStyle(
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    //center
-                    fontFamily: 'Roboto',
-                    fontSize: 20,
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    shadows: [
-                      Shadow(
-                        blurRadius: 7.0,
-                        color: Colors.white,
-                        offset: Offset(0, 0),
-                      ),
-                    ],
-                  ),
-                  child: AnimatedTextKit(
-                    repeatForever: false,
-                    totalRepeatCount: 3,
-                    animatedTexts: [
-                      FlickerAnimatedText('Welcome to Reddit'),
-                      FlickerAnimatedText('Welcome to Reddit'),
-                    ],
-                  ),
+    return SafeArea(
+      child: Scaffold(
+         
+          appBar: AppBar(
+            backgroundColor: Color.fromARGB(255,59,140,220),
+            title: SizedBox(
+              width: 200.0,
+              child: DefaultTextStyle(
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  //center
+                  fontFamily: 'Roboto',
+                  fontSize: 20,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  shadows: [
+                    Shadow(
+                      blurRadius: 7.0,
+                      color: Colors.white,
+                      offset: Offset(0, 0),
+                    ),
+                  ],
+                ),
+                child: AnimatedTextKit(
+                  repeatForever: false,
+                  totalRepeatCount: 3,
+                  animatedTexts: [
+                    FlickerAnimatedText('Welcome to Reddit'),
+                    FlickerAnimatedText('Welcome to Reddit'),
+                  ],
                 ),
               ),
-              leading: SizedBox(
-        height: 20.0,
-        child: Image.asset(
-            'assets/images/redit.jpeg'),
-      ),
             ),
+            leading: SizedBox(
+      height: 20.0,
+      child: Image.asset(
+          'assets/images/redit.jpeg'),
+    ),
+          ),
 
-            body: Container(
-              decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Colors.blue, Colors.red])),
-           child :Center(
-                child: Column(
-              children: [
-                
-                Container(
+          body: Container(
+            decoration: const BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Colors.blue, Colors.red])),
+         child :Center(
+              child: Column(
+            children: [
+              
+              Container(
 
-                    margin: EdgeInsets.only(top: 300),
-                    child: RaisedButton(
-                      elevation: 15.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.red),
-                      ),
-                      child: SizedBox(
-                        width: 250.0,
-                        child: TextLiquidFill(
-                          text: 'Login',
-                          waveColor: Color.fromARGB(255, 255, 255, 255),
-                          boxBackgroundColor: Colors.red,
-                          loadDuration: Duration(seconds: 6),
-                          waveDuration: Duration(seconds: 2),
-                          
-                          textStyle: TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          boxHeight: 60.0,
-                        ),
-                      ),
-                      textColor: Colors.black,
-                      color: Colors.red,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return LoginScreen();
-                            },
-                          ),
-                        );
-                      },
-                      padding:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 110),
-                    )),
-                Container(
-                    margin: EdgeInsets.only(top: 22),
-                    child: RaisedButton(
-                      elevation: 15.0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Colors.white),
-                      ),
+                  margin: EdgeInsets.only(top: 300),
+                  // ignore: deprecated_member_use
+                  child: RaisedButton(
+                    elevation: 15.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(color: Colors.red),
+                    ),
+                    child: SizedBox(
+                      width: 250.0,
                       child: TextLiquidFill(
-                        text: 'SignUp',
-                        waveColor: Colors.red,
-                        boxBackgroundColor: Colors.white,
+                        text: 'Login',
+                        waveColor: Color.fromARGB(255, 255, 255, 255),
+                        boxBackgroundColor: Colors.red,
                         loadDuration: Duration(seconds: 6),
                         waveDuration: Duration(seconds: 2),
-
+                        
                         textStyle: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                         boxHeight: 60.0,
                       ),
-                      textColor: Colors.red,
-                      color: Colors.white,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return Scaffold(
-                                appBar: AppBar(
-                                  title: Text('Signup'),
-                                  leading: IconButton(
-                                    icon: Icon(Icons.arrow_back),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        );
-                      },
-                      padding:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 110),
-                    )),
-              ],
-            ))))
-            )
-            );
+                    ),
+                    textColor: Colors.black,
+                    color: Colors.red,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyHomePage()),
+                      );
+                    },
+                    padding:
+                        EdgeInsets.symmetric(vertical: 20, horizontal: 110),
+                  )),
+              Container(
+                  margin: EdgeInsets.only(top: 22),
+                  // ignore: deprecated_member_use
+                  child: RaisedButton(
+                    elevation: 15.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                      side: BorderSide(color: Colors.white),
+                    ),
+                    child: TextLiquidFill(
+                      text: 'SignUp',
+                      waveColor: Colors.red,
+                      boxBackgroundColor: Colors.white,
+                      loadDuration: Duration(seconds: 6),
+                      waveDuration: Duration(seconds: 2),
+
+                      textStyle: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      boxHeight: 60.0,
+                    ),
+                    textColor: Colors.red,
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyHomePage()),
+                      );
+                    },
+                    padding:
+                        EdgeInsets.symmetric(vertical: 20, horizontal: 110),
+                  )),
+            ],
+          ))))
+          );
 
   }
 }
@@ -179,6 +157,7 @@ class WelcomeScreen extends StatelessWidget {
 class CustomShapeBorder extends ContinuousRectangleBorder {
   @override
   Path getOuterPath(Rect rect, {TextDirection textDirection}) {
+    // ignore: prefer_const_declarations
     final double innerCircleRadius = 150.0;
 
     Path path = Path();
