@@ -31,6 +31,7 @@ dependencies:
   flutter_signin_button: ^2.0.0
   animated_splash_screen:
   animated_text_kit: ^4.2.1
+  animated_toggle_switch: ^0.5.2
   flutter:
     sdk: flutter
 

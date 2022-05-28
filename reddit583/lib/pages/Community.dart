@@ -7,6 +7,7 @@ class Community extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: Text('Community'),
       color: Colors.yellow,
     );
   }
