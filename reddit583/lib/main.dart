@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AnimatedSplashScreen(
-        splash: Image.asset('assets/images/redit.jpeg'),
+        splash: Image.asset('assets/images/yoda2.png',),
         duration: 1700,
         splashTransition: SplashTransition.decoratedBoxTransition,
         backgroundColor: Color.fromARGB(255, 32, 35, 34),

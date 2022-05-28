@@ -32,7 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color.fromARGB(255, 15, 4, 76),
+            backgroundColor: Color.fromARGB(255, 85, 240, 28),
             appBar: AppBar(
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_ios),
@@ -55,10 +55,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         margin: EdgeInsets.fromLTRB(40.0, 30.0, 40.0, 0.0),
                         child: TextField(
                           controller: user,
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.start,
                           decoration: InputDecoration(
                             errorText: userError,
-                            hintText: 'User Name',
+                            hintText: 'Username',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(color: Colors.black, width: 1.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -70,7 +70,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         margin: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 0.0),
                         child: TextField(
                           controller: email,
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.start,
                           decoration: InputDecoration(
 
                             errorText: emailError,
@@ -87,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: TextField(
                           controller: pass,
                           obscureText: isHidden,
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.start,
                           decoration: InputDecoration(
 
                             suffixIcon: InkWell(
@@ -113,7 +113,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: TextField(
                           controller: confirmPass,
                           obscureText: isHidden,
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.start,
                           decoration: InputDecoration(
                             suffixIcon: InkWell(
                               onTap: () => {
@@ -134,11 +134,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         )
                     ),
                     Container(
-                        margin: EdgeInsets.fromLTRB(42.0, 10.0, 42.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(100.0, 3.0, 120.0, 0.0),
                         child: MaterialButton(
                           elevation: 12.0,
-                          height: 30,
-                          minWidth: 420,
+                          height: 5,
+
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
                           onPressed: () {
                             String username = user.text;
@@ -171,8 +171,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                             
                           },
-                          color: Colors.black,
-                          child:  Icon(Icons.arrow_right_alt_sharp ,color: Colors.white,size: 50,),
+                          
+                          child: Icon(
+
+                            Icons.arrow_right_alt_sharp,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            size: 40,
+                          ),
                         )),
                     Container(
                         margin: EdgeInsets.only(top: 5,),
@@ -191,37 +196,81 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   );
                                 },),
                             ])),
-                    Divider(
-                      color: Colors.black,
-                      indent: 300,
-                      endIndent: 300,
-                      thickness: 0.2,
+                    Container(
+                      child: Text('\nOr \n'),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 10.0),
-                      child: SignInButton(
-                        Buttons.Google,
-                        text: 'Sign up with Google',
-                        onPressed: () {},
-                      ),),
-                    Container(
-                      margin: EdgeInsets.only(top: 10.0),
-                      child: SignInButton(
-                        Buttons.Apple,
-                        text: 'Sign up with Apple',
-                        onPressed: () {},
-                      ),),
-                    Container(
-                      margin: EdgeInsets.only(top: 10.0),
-                      child: SignInButton(
-                        Buttons.Facebook,
-                        text: 'Sign up with Facebook',
-                        onPressed: () {},
-                      ),)
-                  ]
-              ),
-            )
-        )
-     ) ));
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    child: Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 60.0),
+                          child: GestureDetector(
+                            onTap: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MyHomePage()),
+                              )
+                            },
+                            child: Image.asset(
+                              'assets/images/google_PNG19635.png',
+                              scale: 30,
+                            ),
+                          ),
+                        ),
+                        Container(
+                         margin: EdgeInsets.only(left: 10.0),
+                          child: GestureDetector(
+                            onTap: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MyHomePage()),
+                              )
+                            },
+                            child: Image.asset(
+                              'assets/images/facebook_logos_PNG19754.png',
+                              scale: 11,
+                              
+                            ),
+                          ),
+                        ),
+                        Container(
+                         margin: EdgeInsets.only(left: 10.0),
+                          child: GestureDetector(
+                            onTap: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MyHomePage()),
+                              )
+                            },
+                            child: Image.asset(
+                              'assets/images/twitter_PNG3.png',
+                              scale: 32,
+                            ),
+                          ),
+                        ),
+                        Container(
+                         margin: EdgeInsets.only(left: 10.0),
+                          child: GestureDetector(
+                            onTap: () => {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MyHomePage()),
+                              )
+                            },
+                            child: Image.asset(
+                              'assets/images/file-apple-logo-black-svg-wikimedia-commons-1.png',
+                              scale: 20,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    ),]),
+                )))));
   }
 }

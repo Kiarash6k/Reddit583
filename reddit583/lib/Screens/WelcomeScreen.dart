@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, file_names, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, unused_label
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter_signin_button/button_list.dart';
+import 'package:flutter_signin_button/button_view.dart';
 import 'package:reddit583/Screens/Home_page.dart';
 import 'package:reddit583/Screens/LoginScreen.dart';
 import 'package:reddit583/Screens/SignUpScreen.dart';
@@ -11,130 +13,88 @@ class WelcomeScreen extends StatelessWidget {
     theme:
     ThemeData(scaffoldBackgroundColor: Color.fromARGB(255, 205, 28, 28));
     return SafeArea(
-      child: Scaffold(
-         
-          appBar: AppBar(
-            backgroundColor:Color.fromARGB(237, 255, 255, 255), 
-            title: SizedBox(
-              width: 200.0,
-              child: DefaultTextStyle(
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  //center
-                  fontFamily: 'Roboto',
-                  fontSize: 20,
-                  color: Color.fromARGB(255, 12, 0, 107),
-                  shadows: [
-                    Shadow(
-                      blurRadius: 7.0,
-                      color: Color.fromARGB(255, 15, 5, 5),
-                      offset: Offset(0, 0),
-                    ),
-                  ],
-                ),
-                child: AnimatedTextKit(
-                  repeatForever: false,
-                  totalRepeatCount: 3,
-                  animatedTexts: [
-                    FlickerAnimatedText('Welcome to Reddit'),
-                    FlickerAnimatedText('Welcome to Reddit'),
-                  ],
-                ),
-              ),
-            ),
-            leading: SizedBox(
-      height: 20.0,
-      child: Image.asset(
-          'assets/images/redit.jpeg'),
-    ),
-          ),
-
-          body: Container(
-            decoration: const BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color.fromARGB(255, 0, 39, 72), Color.fromARGB(255, 0, 0, 0)])),
-         child :Center(
-              child: Column(
-            children: [
-              
-              Container(
-
-                  margin: EdgeInsets.fromLTRB(20, 100, 20, 40),
-                  // ignore: deprecated_member_use
-                  child: RaisedButton(
-                    elevation: 15.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                      side: BorderSide(color: Colors.red),
-                    ),
-                    child: SizedBox(
-                      width: 250.0,
-                      child: TextLiquidFill(
-                        text: 'Login',
-                        waveColor: Color.fromARGB(255, 255, 255, 255),
-                        boxBackgroundColor: Colors.red,
-                        loadDuration: Duration(seconds: 6),
-                        waveDuration: Duration(seconds: 2),
-                        
-                        textStyle: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        boxHeight: 60.0,
+        child: Scaffold(
+            body: Container(
+                decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                      Color.fromARGB(255, 255, 255, 255),
+                      Color.fromARGB(255, 85, 240, 28)
+                    ])),
+                child: Center(
+                    child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 200),
+                      height: MediaQuery.of(context).size.height * 0.2,
+                      child: Image.asset(
+                        'assets/images/yoda2.png',
+                        fit: BoxFit.contain,
                       ),
                     ),
-                    textColor: Colors.black,
-                    color: Colors.red,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                      );
-                    },
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-                  )),
-              Container(
-                  margin: EdgeInsets.fromLTRB(20, 100, 20, 40),
-                  // ignore: deprecated_member_use
-                  child: RaisedButton(
-                    elevation: 15.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                      side: BorderSide(color: Colors.white),
-                    ),
-                    child: SizedBox(
-                      width: 250.0,
-                    child: TextLiquidFill(
-                      text: 'SignUp',
-                      waveColor: Colors.red,
-                      boxBackgroundColor: Colors.white,
-                      loadDuration: Duration(seconds: 6),
-                      waveDuration: Duration(seconds: 2),
-
-                      textStyle: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      boxHeight: 60.0,
-                    ),),
-                    textColor: Colors.red,
-                    color: Colors.white,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignUpScreen()),
-                      );
-                    },
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-                  )),
-            ],
-          ))))
-          );
-
+                    Container(
+                        margin: EdgeInsets.fromLTRB(20, 150, 20, 40),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.white,
+                            textStyle: TextStyle(
+                                color: Color.fromARGB(255, 205, 28, 28),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          child: Text(
+                            'Get Started',
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 0, 103, 21)),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpScreen()),
+                            );
+                          },
+                        )),
+                    Container(
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                          Text(
+                            'Already a Member ? ',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black,
+                            ),
+                          ),
+                          GestureDetector(
+                            child: Text(
+                              'Sign in',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 0, 103, 21),
+                                shadows: [
+                                  Shadow(
+                                    blurRadius: 10.0,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    offset: Offset(5.0, 5.0),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()),
+                              );
+                            },
+                          ),
+                        ])),
+                  ],
+                )))));
   }
 }
 

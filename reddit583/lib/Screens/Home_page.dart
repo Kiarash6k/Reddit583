@@ -17,12 +17,12 @@ class MyHomePage extends StatelessWidget {
     elevation: 20.0,
     leading: SizedBox(
       height: 20.0,
-      child: Image.asset("assets/images/redit.jpeg"),
+      child: Image.asset("assets/images/yoda2.png"),
     ),
-    title: SizedBox(
-      height: 30.0,
-      child: Image.asset("assets/images/text.jpeg"),
-    ),
+    // title: SizedBox(
+    //   height: 30.0,
+    //   child: Image.asset("assets/images/text.jpeg"),
+    // ),
     actions: <Widget>[
       IconButton(
         icon: Icon(Icons.switch_account),
@@ -36,7 +36,7 @@ class MyHomePage extends StatelessWidget {
     ],
   ),
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Color.fromARGB(255, 236, 112, 9),
+        backgroundColor: Color.fromARGB(255, 85, 240, 28),
         items: <Widget>[
           Icon(Icons.home_filled, size: 30),
           Icon(Icons.explore, size: 30),
