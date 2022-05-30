@@ -27,12 +27,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    
     return SafeArea(child: 
      MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             key: scaffoldKey,
-            backgroundColor: Color.fromARGB(255, 85, 240, 28),
+            backgroundColor: Color.fromARGB(255, 40, 90, 82),
             appBar: AppBar(
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_ios),
@@ -40,19 +42,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Navigator.pop(context);
                 },
               ),
-              backgroundColor:Color.fromARGB(237, 255, 255, 255), 
-              foregroundColor: Color.fromARGB(255, 42, 42, 42),
+              backgroundColor: Color.fromARGB(237, 55, 72, 77),
+                  foregroundColor: Color.fromARGB(255, 101, 223, 165),
               title: Text('Create a new account'),
               centerTitle: true,
             ),
             body: Container(
               child: Container(
-                margin: EdgeInsets.only(top: 20,right: 40,left: 40,bottom: 10),
-                color: Color.fromARGB(165, 255, 254, 254),
+                // margin: EdgeInsets.only(top: 20,right: 40,left: 40,bottom: 10),
+                //margin: EdgeInsets.only(top: size.height*0.05,right: 40,left: 40,bottom: 10),
+
               child: Column(
                   children: <Widget>[
                     Container(
-                        margin: EdgeInsets.fromLTRB(40.0, 30.0, 40.0, 0.0),
+                        //margin: EdgeInsets.fromLTRB(40.0, 30.0, 40.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(size.width*0.2, 30.0, size.width*0.2, 0.0),
                         child: TextField(
                           controller: user,
                           textAlign: TextAlign.start,
@@ -60,14 +64,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             errorText: userError,
                             hintText: 'Username',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                                borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 2.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                                borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 3.5)),
                             contentPadding: EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
                           ),
                         )),
                     Container(
-                        margin: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(size.width*0.2, 5.0, size.width*0.2, 0.0),
                         child: TextField(
                           controller: email,
                           textAlign: TextAlign.start,
@@ -76,14 +80,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             errorText: emailError,
                             hintText: 'Email',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                                borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 2.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                                borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 3.5)),
                             contentPadding: EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
                           ),
                         )),
                     Container(
-                        margin: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(size.width*0.2, 10.0, size.width*0.2, 0.0),
                         child: TextField(
                           controller: pass,
                           obscureText: isHidden,
@@ -96,20 +100,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   isHidden = !isHidden;
                                 })
                               },
-                              child: Icon(Icons.visibility, color: Colors.black,),
+                              child: Icon(Icons.visibility, color: Color.fromARGB(255, 105, 231, 164),),
                             ),
                             errorText: passError,
                             hintText: 'Password',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                                borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 2.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                                borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 3.5)),
                             contentPadding: EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
                           ),
                         )
                     ),
                     Container(
-                        margin: EdgeInsets.fromLTRB(40.0, 5.0, 40.0, 0.0),
+                        margin: EdgeInsets.fromLTRB(size.width*0.2, 5.0, size.width*0.2, 0.0),
                         child: TextField(
                           controller: confirmPass,
                           obscureText: isHidden,
@@ -121,20 +125,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   isHidden = !isHidden;
                                 })
                               },
-                              child: Icon(Icons.visibility, color: Colors.black,),
+                              child: Icon(Icons.visibility, color: Color.fromARGB(255, 105, 231, 164),),
                             ),
                             errorText: confirmPassError,
                             hintText: 'Confirm',
                             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                                borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 2.5)),
                             focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                                borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                                borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 3.5)),
                             contentPadding: EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
                           ),
                         )
                     ),
                     Container(
-                        margin: EdgeInsets.fromLTRB(100.0, 3.0, 120.0, 0.0),
+                       margin: EdgeInsets.fromLTRB(size.width*0.5, 5.0, size.width*0.1, 0.0),
                         child: MaterialButton(
                           elevation: 12.0,
                           height: 5,
@@ -172,11 +176,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             
                           },
                           
-                          child: Icon(
-
-                            Icons.arrow_right_alt_sharp,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            size: 40,
+                          child: CircleAvatar(
+                            backgroundColor: Color.fromARGB(255, 105, 231, 164),
+                            child: Icon(
+                              Icons.arrow_right_alt_sharp,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              size: 40,
+                            ),
                           ),
                         )),
                     Container(
@@ -184,9 +190,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('Already have an account ? ', style: TextStyle(color: Colors.black,),),
+                              Text('Already have an account ? ', style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                ),),
                               GestureDetector(
-                                child: Text('Login', style: TextStyle(color: Color.fromARGB(239, 11, 1, 110),shadows: [Shadow(color: Colors.black, offset: Offset(1.0, 1.0), blurRadius: 2.0)],),),
+                                child: Text('Login', style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Color.fromARGB(255, 105, 231, 164),
+                                    shadows: [
+                                      Shadow(
+                                        blurRadius: 10.0,
+                                        color:
+                                            Color.fromARGB(255, 255, 255, 255),
+                                        offset: Offset(1.0, 1.0),
+                                      ),
+                                    ],
+                                ),
+                                ),
                                 onTap: () {
                                   Navigator.push(context, MaterialPageRoute(
                                     builder: (context) {
@@ -200,11 +221,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: Text('\nOr \n'),
                     ),
                     Container(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                    child: Row(
+
+                    child: Column(
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 60.0),
+                          margin: EdgeInsets.only(left: 10.0),
                           child: GestureDetector(
                             onTap: () => {
                               Navigator.push(
@@ -213,10 +234,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     builder: (context) => MyHomePage()),
                               )
                             },
-                            child: Image.asset(
-                              'assets/images/google_PNG19635.png',
-                              scale: 30,
-                            ),
+                            child: SignInButton(
+                                  Buttons.Twitter,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MyHomePage()),
+                                    );
+                                  },
+                                ),
                           ),
                         ),
                         Container(
@@ -229,11 +256,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     builder: (context) => MyHomePage()),
                               )
                             },
-                            child: Image.asset(
-                              'assets/images/facebook_logos_PNG19754.png',
-                              scale: 11,
-                              
-                            ),
+                            child: SignInButton(
+                                  Buttons.Apple,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MyHomePage()),
+                                    );
+                                  },
+                                ),
                           ),
                         ),
                         Container(
@@ -246,28 +278,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     builder: (context) => MyHomePage()),
                               )
                             },
-                            child: Image.asset(
-                              'assets/images/twitter_PNG3.png',
-                              scale: 32,
-                            ),
+                            child: SignInButton(
+                                  Buttons.Google,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MyHomePage()),
+                                    );
+                                  },
+                                ),
                           ),
                         ),
-                        Container(
-                         margin: EdgeInsets.only(left: 10.0),
-                          child: GestureDetector(
-                            onTap: () => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyHomePage()),
-                              )
-                            },
-                            child: Image.asset(
-                              'assets/images/file-apple-logo-black-svg-wikimedia-commons-1.png',
-                              scale: 20,
-                            ),
-                          ),
-                        ),
+                        
                       ],
                     ),
                     ),]),

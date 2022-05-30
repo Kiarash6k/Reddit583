@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AnimatedSplashScreen(
-        splash: Image.asset('assets/images/yoda2.png',),
+        splash: Image.asset('assets/images/imageedit_2_7305567590.png',),
         duration: 1700,
         splashTransition: SplashTransition.decoratedBoxTransition,
         backgroundColor: Color.fromARGB(255, 32, 35, 34),

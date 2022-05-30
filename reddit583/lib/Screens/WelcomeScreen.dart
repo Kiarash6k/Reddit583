@@ -16,12 +16,12 @@ class WelcomeScreen extends StatelessWidget {
         child: Scaffold(
             body: Container(
                 decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
+                    gradient: RadialGradient(
+                        radius: 2,
+                        center: Alignment(-0.7, -0.6),
                         colors: [
-                      Color.fromARGB(255, 255, 255, 255),
-                      Color.fromARGB(255, 28, 89, 6)
+                      Color.fromARGB(255,40,90,82),
+                      Color.fromARGB(255, 53,71,74),
                     ])),
                 child: Center(
                     child: Column(
@@ -30,7 +30,7 @@ class WelcomeScreen extends StatelessWidget {
                       margin: EdgeInsets.only(top: 200),
                       height: MediaQuery.of(context).size.height * 0.2,
                       child: Image.asset(
-                        'assets/images/yoda2.png',
+                        'assets/images/imageedit_2_7305567590.png',
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -38,7 +38,10 @@ class WelcomeScreen extends StatelessWidget {
                         margin: EdgeInsets.fromLTRB(20, 150, 20, 40),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white,
+                            shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                            primary: Color.fromARGB(255, 105,231,164),
                             textStyle: TextStyle(
                                 color: Color.fromARGB(255, 205, 28, 28),
                                 fontSize: 20,
@@ -47,9 +50,10 @@ class WelcomeScreen extends StatelessWidget {
                           child: Text(
                             'Get Started',
                             style: TextStyle(
-                                fontSize: 20,
+                                fontFamily: 'Montserrat',
+                                fontSize: 15,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 0, 103, 21)),
+                                color: Color.fromARGB(255, 255, 255, 255)),
                           ),
                           onPressed: () {
                             Navigator.push(
@@ -66,20 +70,22 @@ class WelcomeScreen extends StatelessWidget {
                           Text(
                             'Already a Member ? ',
                             style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black,
+                              fontFamily: 'Montserrat',
+                              fontSize: 15,
+                              color: Color.fromARGB(255, 255, 255, 255),
                             ),
                           ),
                           GestureDetector(
                             child: Text(
                               'Sign in',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 0, 103, 21),
+                                fontFamily: 'Montserrat',
+                                color: Color.fromARGB(255, 105,231,164),
                                 shadows: [
                                   Shadow(
                                     blurRadius: 10.0,
                                     color: Color.fromARGB(255, 255, 255, 255),
-                                    offset: Offset(5.0, 5.0),
+                                    offset: Offset(1.0, 1.0),
                                   ),
                                 ],
                               ),

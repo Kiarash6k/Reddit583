@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
             debugShowCheckedModeBanner: false,
             home: Scaffold(
                 key: scaffoldKey,
-                backgroundColor: Color.fromARGB(255, 85, 240, 28),
+                backgroundColor: Color.fromARGB(255, 40, 90, 82),
                 appBar: AppBar(
                   leading: IconButton(
                     icon: Icon(Icons.arrow_back_ios),
@@ -48,20 +48,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   title: Text('Login'),
                   centerTitle: true,
-                  backgroundColor: Color.fromARGB(237, 255, 255, 255),
-                  foregroundColor: Color.fromARGB(255, 42, 42, 42),
+                  backgroundColor: Color.fromARGB(237, 55, 72, 77),
+                  foregroundColor: Color.fromARGB(255, 101, 223, 165),
                 ),
                 body: Container(
                     child: Container(
                   margin:
-                      EdgeInsets.only(top: 30, right: 40, left: 40, bottom: 20),
-                  color: Color.fromARGB(165, 255, 254, 254),
+                      EdgeInsets.only(top: 10, right: 40, left: 40, bottom: 20),
+                  //color: Color.fromARGB(165, 255, 254, 254),
                   child: Column(children: <Widget>[
                     Container(
                         margin: EdgeInsets.fromLTRB(40.0, 60.0, 40.0, 0.0),
                         child: TextField(
                           controller: user,
-
                           textAlign: TextAlign.start,
                           decoration: InputDecoration(
                             errorText: userError,
@@ -70,12 +69,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(
-                                    color: Colors.black, width: 1.5)),
+                                    color: Color.fromARGB(255, 105, 231, 164),
+                                    width: 2.5)),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(
-                                    color: Colors.black, width: 1.5)),
+                                    color: Color.fromARGB(255, 105, 231, 164),
+                                    width: 3.5)),
                             contentPadding:
                                 EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
                           ),
@@ -95,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               },
                               child: Icon(
                                 Icons.visibility,
-                                color: Colors.black,
+                                color: Color.fromARGB(255, 105, 231, 164),
                               ),
                             ),
                             errorText: passError,
@@ -104,22 +105,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(
-                                    color: Colors.black, width: 1.5)),
+                                    color: Color.fromARGB(255, 105, 231, 164),
+                                    width: 2.5)),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20.0)),
                                 borderSide: BorderSide(
-                                    color: Colors.black, width: 1.5)),
+                                    color: Color.fromARGB(255, 105, 231, 164),
+                                    width: 3.5)),
                             contentPadding:
                                 EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
                           ),
                         )),
                     Container(
-                        margin: EdgeInsets.fromLTRB(100.0, 3.0, 120.0, 0.0),
+
+                        margin: EdgeInsets.fromLTRB(140.0, 3.0, 0.0, 0.0),
                         child: MaterialButton(
+                          
                           elevation: 12.0,
                           height: 5,
-                          minWidth: 250,
+                          //minWidth: 250,
                           shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20.0))),
@@ -149,12 +154,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                 MaterialPageRoute(
                                     builder: (context) => MyHomePage()));
                           },
-                          
-                          child: Icon(
-
-                            Icons.arrow_right_alt_sharp,
-                            color: Color.fromARGB(255, 0, 0, 0),
-                            size: 40,
+                          child: CircleAvatar(
+                            backgroundColor: Color.fromARGB(255, 105, 231, 164),
+                            child: Icon(
+                              Icons.arrow_right_alt_sharp,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              size: 40,
+                            ),
                           ),
                         )),
                     Container(
@@ -167,20 +173,22 @@ class _LoginScreenState extends State<LoginScreen> {
                               Text(
                                 'Not a member yet ? ',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  fontFamily: 'Montserrat',
+                                  color: Color.fromARGB(255, 255, 255, 255),
                                 ),
                               ),
                               GestureDetector(
                                 child: Text(
                                   'Sign up',
                                   style: TextStyle(
-                                    color: Color.fromARGB(255, 0, 64, 73),
+                                    fontFamily: 'Montserrat',
+                                    color: Color.fromARGB(255, 105, 231, 164),
                                     shadows: [
                                       Shadow(
                                         blurRadius: 10.0,
                                         color:
                                             Color.fromARGB(255, 255, 255, 255),
-                                        offset: Offset(5.0, 5.0),
+                                        offset: Offset(1.0, 1.0),
                                       ),
                                     ],
                                   ),
@@ -204,12 +212,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         'Forgot Password?',
                         style: TextStyle(
-                          color: Color.fromARGB(255, 0, 64, 73),
+                          fontFamily: 'Montserrat',
+                          color: Color.fromARGB(255, 105, 231, 164),
                           shadows: [
                             Shadow(
                               blurRadius: 10.0,
                               color: Color.fromARGB(255, 255, 255, 255),
-                              offset: Offset(5.0, 5.0),
+                              offset: Offset(1.0, 1.0),
                             ),
                           ],
                         ),
@@ -224,79 +233,98 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     ),
                     Container(
-                      child: Text('\nOr \n'),
+                      child: Text(
+                        '\nOr \n',
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          color: Color.fromARGB(255, 105, 231, 164),
+                          shadows: [
+                            Shadow(
+                              blurRadius: 10.0,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              offset: Offset(1.0, 1.0),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                     Container(
-                      color: Color.fromARGB(255, 255, 255, 255),
-                    child: Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(left: 60.0),
-                          child: GestureDetector(
-                            onTap: () => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyHomePage()),
-                              )
-                            },
-                            child: Image.asset(
-                              'assets/images/google_PNG19635.png',
-                              scale: 30,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            
+                            Container(
+                              margin: EdgeInsets.only(left: 10.0),
+                              child: GestureDetector(
+                                onTap: () => {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyHomePage()),
+                                  )
+                                },
+                                child: SignInButton(
+                                  Buttons.Twitter,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MyHomePage()),
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        Container(
-                         margin: EdgeInsets.only(left: 10.0),
-                          child: GestureDetector(
-                            onTap: () => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyHomePage()),
-                              )
-                            },
-                            child: Image.asset(
-                              'assets/images/facebook_logos_PNG19754.png',
-                              scale: 13,
+                            Container(
+                              color: Colors.grey,
+                              margin: EdgeInsets.only(left: 10.0),
+                              child: GestureDetector(
+                                onTap: () => {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyHomePage()),
+                                  )
+                                },
+                                child: SignInButton(
+                                  Buttons.Apple,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MyHomePage()),
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        Container(
-                         margin: EdgeInsets.only(left: 10.0),
-                          child: GestureDetector(
-                            onTap: () => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyHomePage()),
-                              )
-                            },
-                            child: Image.asset(
-                              'assets/images/twitter_PNG3.png',
-                              scale: 32,
+                            Container(
+                              margin: EdgeInsets.only(left: 10.0),
+                              child: GestureDetector(
+                                onTap: () => {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyHomePage()),
+                                  )
+                                },
+                                child: SignInButton(
+                                  Buttons.Google,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => MyHomePage()),
+                                    );
+                                  },
+                                ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                        Container(
-                         margin: EdgeInsets.only(left: 10.0),
-                          child: GestureDetector(
-                            onTap: () => {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyHomePage()),
-                              )
-                            },
-                            child:  Image.asset(
-                              'assets/images/file-apple-logo-black-svg-wikimedia-commons-1.png',
-                              scale: 20,
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                    ),]),
+                  ]),
                 )))));
   }
 }
