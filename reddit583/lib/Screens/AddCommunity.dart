@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../MainClasses/Community.dart';
+
 class AddCommunity extends StatefulWidget {
   Function addCommunity;
   AddCommunity({Key key, this.addCommunity}) : super(key: key);
@@ -60,6 +62,37 @@ class _AddCommunityState extends State<AddCommunity> {
                 ),
               )
           ),
+          Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(top: 25.0, left: 40.0),
+              child: MaterialButton(
+                elevation: 12.0,
+                height: 50,
+                minWidth: 350,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                onPressed: () {
+                  String communityName = communityNameController.text;
+                  FocusScope.of(context).requestFocus(FocusNode());
+                  setState(() {
+                    if(communityName.isEmpty) {
+                      communityNameError = 'you have not named your community yet';
+                    } else {
+                      communityNameError = null;
+                      alarm = SnackBar(content: Text('$communityName created successfully!'));
+                      scaffoldKey.currentState.showSnackBar(alarm);
+                      widget.addCommunity(Community('r/$communityName',
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJeC4q0PJmgrC4YdjhNFMdc1DxE7TayRRB1Q&usqp=CAU'));
+                      communityNameController.clear();
+                      Navigator.pop(context);
+                    }
+                  });
+                },
+                color: Colors.teal,
+                child: Text('creat',
+                    style: TextStyle(
+                      color: Colors.cyan,
+                    )),
+              )),
         ],
       ),
     );
