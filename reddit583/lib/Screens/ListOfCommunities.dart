@@ -42,7 +42,7 @@ class _ShowCommunityListState extends State<ShowCommunityList> {
                 child: const Icon(Icons.keyboard_arrow_right),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return PostScreen();
+                    return PostScreen(widget.community);
                   }));
                 },
               ),

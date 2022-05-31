@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../MainClasses/Community.dart';
 import '../MainClasses/Post.dart';
+import 'AddPost.dart';
 
 class PostScreen extends StatefulWidget {
   Community community;
@@ -45,7 +46,9 @@ class _PostScreenState extends State<PostScreen> {
             child: Icon(Icons.add),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) {
-                return Scaffold();
+                return AddPost(
+                  addPost: addPost,
+                );
               }),);
             },
           ),
