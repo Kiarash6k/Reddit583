@@ -3,7 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-class WelcomeScreen extends StatelessWidget {
+import
+
+
+import 'CommunityScreen.dart';class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     theme:
@@ -92,17 +95,7 @@ class WelcomeScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return Scaffold(
-                                appBar: AppBar(
-                                  title: Text('Login'),
-                                  leading: IconButton(
-                                    icon: Icon(Icons.arrow_back),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                  ),
-                                ),
-                              );
+                              return CommunityScreen();
                             },
                           ),
                         );
@@ -138,17 +131,7 @@ class WelcomeScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return Scaffold(
-                                appBar: AppBar(
-                                  title: Text('Signup'),
-                                  leading: IconButton(
-                                    icon: Icon(Icons.arrow_back),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                  ),
-                                ),
-                              );
+                              return CommunityScreen();
                             },
                           ),
                         );
