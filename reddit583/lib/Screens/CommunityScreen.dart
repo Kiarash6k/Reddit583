@@ -29,6 +29,29 @@ class _CommunityScreenState extends State<CommunityScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('reddit'),
+          foregroundColor: Colors.red,
+          backgroundColor: Colors.black,
+          centerTitle: true,
+        ),
+        body: Center(
+          child: ListView.builder(
+            itemCount: communities.length,
+            itemBuilder: (context, index) {
+              return Scaffold();
+            },),),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (_) {
+              return Scaffold();
+            }));
+          },
+          hoverColor: Colors.teal,
+        ),
+      ),);
   }
 }
