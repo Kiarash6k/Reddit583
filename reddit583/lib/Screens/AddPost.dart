@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../MainClasses/Post.dart';
+
 class AddPost extends StatefulWidget {
   Function addPost;
   AddPost({Key key, this.addPost}) : super(key: key);
@@ -74,6 +76,51 @@ class _AddPostState extends State<AddPost> {
                 ),
               )
           ),
+          Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(top: 25.0, left: 23.0),
+              child: MaterialButton(
+                elevation: 12.0,
+                height: 50,
+                minWidth: 350,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                onPressed: () {
+                  String title = titleController.text;
+                  String text = textController.text;
+                  FocusScope.of(context).requestFocus(FocusNode());
+                  setState(() {
+                    if(title.isEmpty) {
+                      if(text.isEmpty) {
+                        textError = 'text should not be empty';
+                      } else {
+                        textError = null;
+                      }
+                      titleError = 'title should not be empty';
+                    } else if(text.isEmpty) {
+                      if(title.isEmpty) {
+                        titleError = 'title should not be empty';
+                      } else {
+                        titleError = null;
+                      }
+                      textError = 'text should not be empty';
+                    } else {
+                      titleError = null;
+                      textError = null;
+                      alarm = SnackBar(content: Text('post uploaded successfully!'));
+                      scaffoldKey.currentState.showSnackBar(alarm);
+                      widget.addPost(Post(title, text, false, false, 0, false));
+                      titleController.clear();
+                      textController.clear();
+                      Navigator.pop(context);
+                    }
+                  });
+                },
+                color: Colors.teal,
+                child: Text('create',
+                    style: TextStyle(
+                      color: Colors.cyan,
+                    )),
+              )),
         ],
       ),
     );
