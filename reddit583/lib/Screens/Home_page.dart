@@ -23,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'Home': feed(),
     'Community': Community(),
     'Plus': Plus(),
-    'Comment': Comment(),
+    //'Comment': Comment(),
     'Settings': Setting(),
   };
 
@@ -153,8 +153,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Icon(Icons.home_filled, size: 30),
           Icon(Icons.explore, size: 30),
           Icon(Icons.add, size: 30),
-          Icon(Icons.chat_rounded, size: 30),
-          Icon(Icons.notifications, size: 30),
+
+          Icon(Icons.settings, size: 30),
         ],
         onTap: (index) {
           changePage(index);
