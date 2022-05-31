@@ -8,6 +8,7 @@ import 'package:reddit583/pages/Plus.dart';
 import 'package:reddit583/pages/Setting.dart';
 import 'package:reddit583/pages/feed.dart';
 import 'package:reddit583/pages/Comment.dart';
+import '../pages/AccountPage.dart';
 import 'LoginScreen.dart';
 import 'SignUpScreen.dart';
 
@@ -23,7 +24,6 @@ class _MyHomePageState extends State<MyHomePage> {
     'Home': feed(),
     'Community': Community(),
     'Plus': Plus(),
-    //'Comment': Comment(),
     'Settings': Setting(),
   };
 
@@ -40,12 +40,12 @@ class _MyHomePageState extends State<MyHomePage> {
     (
       theme:
     new ThemeData(
-      primaryColor: Color.fromARGB(255, 32, 35, 34), // Your app THEME-COLOR
+      primaryColor:  Color.fromARGB(255,40,90,82), // Your app THEME-COLOR
     ),
     home: Scaffold(
       
       drawer: Drawer(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: Color.fromARGB(255, 53,71,74),
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
@@ -57,60 +57,87 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             ListTile(
-              leading: CircleAvatar(
-                child: Icon(
-                  Icons.manage_accounts_outlined,
-                  size: 40,
-                  color: Color.fromARGB(208, 27, 80, 0),
-                ),
-                backgroundColor: Colors.white,
+            leading: CircleAvatar(
+              child: Icon(
+                Icons.manage_accounts_outlined,
+                size: 35,
+                color: Color.fromARGB(255, 105,231,164),
               ),
-              title: Text('Account'),
-              trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {},
+              backgroundColor: Color.fromARGB(0, 255, 255, 255),
             ),
-            ListTile(
-              leading: CircleAvatar(
-                child: Icon(
-                  Icons.create_outlined,
-                  size: 35,
-                  color: Color.fromARGB(208, 27, 80, 0),
-                ),
-                backgroundColor: Colors.white,
+            title: Text('Account',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 105,231,164),
+                    fontSize: 20,
+                    fontFamily: 'Mazzard',
+                    fontWeight: FontWeight.bold)),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => accountPage()));
+            },
+          ),
+          ListTile(
+            leading: CircleAvatar(
+              child: Icon(
+                Icons.create_outlined,
+                size: 30,
+                color: Color.fromARGB(255, 105,231,164),
               ),
-              title: Text('Create Forum'),
-              trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {},
+              backgroundColor: Color.fromARGB(0, 255, 255, 255),
             ),
-            ListTile(
-              leading: CircleAvatar(
-                child: Icon(
-                  Icons.tag,
-                  size: 40,
-                  color: Color.fromARGB(208, 27, 80, 0),
-                ),
-                backgroundColor: Colors.white,
+            title: Text('Create Forum',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 105,231,164),
+                    fontSize: 20,
+                    fontFamily: 'Mazzard',
+                    fontWeight: FontWeight.bold)),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: CircleAvatar(
+              child: Icon(
+                Icons.bookmark_outline,
+                size: 30,
+                color: Color.fromARGB(255, 105,231,164),
               ),
-              title: Text('Saved Posts'),
-              trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {},
+              backgroundColor: Color.fromARGB(0, 255, 255, 255),
             ),
-            ListTile(
-              leading: CircleAvatar(
-                child: Icon(
-                  Icons.info_rounded,
-                  size: 40,
-                  color: Color.fromARGB(208, 27, 80, 0),
-                ),
-                backgroundColor: Colors.white,
+            title: Text('Saved Posts',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 105,231,164),
+                    fontSize: 20,
+                    fontFamily: 'Mazzard',
+                    fontWeight: FontWeight.bold)),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {},
+          ),
+          ListTile(
+            leading: CircleAvatar(
+              child: Icon(
+                Icons.info_outline_rounded,
+                size: 35,
+                color: Color.fromARGB(255, 105,231,164),
               ),
-              title: Text('About Us'),
-              trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {},
+              backgroundColor: Color.fromARGB(0, 255, 255, 255),
             ),
+            title: Text('About Us',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 105,231,164),
+                    fontSize: 20,
+                    fontFamily: 'Mazzard',
+                    fontWeight: FontWeight.bold)),
+            trailing: Icon(Icons.keyboard_arrow_right),
+            onTap: () {},
+          ),
             ListTile(
-              title: Text('Logout'),
-              leading: Icon(Icons.exit_to_app),
+              title: Text('Logout',style: TextStyle(
+                    color: Color.fromARGB(255, 105,231,164),
+                    fontSize: 20,
+                    fontFamily: 'Mazzard',
+                    fontWeight: FontWeight.bold)),
+              leading: Icon(Icons.exit_to_app,color: Color.fromARGB(255, 105,231,164),),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.push(context,
@@ -120,14 +147,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      backgroundColor: Color.fromARGB(212, 59, 58, 58),
+      backgroundColor: Color.fromARGB(255, 53,71,74),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 32, 35, 34),
+        backgroundColor: Color.fromARGB(255,40,90,82),
+        foregroundColor: Color.fromARGB(255, 105,231,164),
         elevation: 20.0,
         leading: Builder(
           builder: (BuildContext context) {
             return GestureDetector(
-              child: Image.asset("assets/images/yoda2.png"),
+              child: Image.asset("assets/images/imageedit_2_7305567590.png"),
               onTap: () {
                 Scaffold.of(context).openDrawer();
               },
@@ -148,7 +176,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: _children[_currentTab],
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Color.fromARGB(255, 85, 240, 28),
+        color: Color.fromARGB(255, 50, 113, 102),
+        buttonBackgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 84, 191, 171),//Color.fromARGB(255,40,90,82),
         items: <Widget>[
           Icon(Icons.home_filled, size: 30),
           Icon(Icons.explore, size: 30),
