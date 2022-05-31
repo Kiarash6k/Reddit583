@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="75b98bcc-2dfc-42df-b0ae-7d66df331e29" name="Changes" comment="" />
+    <list default="true" id="75b98bcc-2dfc-42df-b0ae-7d66df331e29" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/reddit583/lib/Screens/ListOfPosts.dart" beforeDir="false" afterPath="$PROJECT_DIR$/reddit583/lib/Screens/ListOfPosts.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653426262085</updated>
       <workItem from="1653426263266" duration="2235000" />
-      <workItem from="1653985973053" duration="4552000" />
+      <workItem from="1653985973053" duration="5283000" />
     </task>
     <servers />
   </component>
