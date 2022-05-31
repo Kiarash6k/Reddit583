@@ -25,6 +25,31 @@ class _PostScreenState extends State<PostScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('reddit'),
+            backgroundColor: Colors.black,
+            foregroundColor: Colors.red,
+            centerTitle: true,
+          ),
+          body: Center(
+            child: ListView.builder(
+              itemCount: posts.length,
+              itemBuilder: (context, index) {
+                return Scaffold();
+              },
+            ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) {
+                return Scaffold();
+              }),);
+            },
+          ),
+        )
+    );
   }
 }
