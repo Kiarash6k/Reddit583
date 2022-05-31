@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75b98bcc-2dfc-42df-b0ae-7d66df331e29" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/reddit583/lib/Screens/AddCommunity.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reddit583/lib/Screens/ListOfCommunities.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reddit583/lib/Screens/CommunityScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/reddit583/lib/Screens/CommunityScreen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653426262085</updated>
       <workItem from="1653426263266" duration="2235000" />
-      <workItem from="1653985973053" duration="2163000" />
+      <workItem from="1653985973053" duration="2858000" />
     </task>
     <servers />
   </component>

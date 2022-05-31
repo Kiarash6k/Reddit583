@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../MainClasses/Community.dart';
+import 'AddCommunity.dart';
 import 'ListOfCommunities.dart';
 
 
@@ -42,13 +43,15 @@ class _CommunityScreenState extends State<CommunityScreen> {
           child: ListView.builder(
             itemCount: communities.length,
             itemBuilder: (context, index) {
-              return ShowCommunityList();
+              return ShowCommunityList(communities[index], () => removeCommunity(index));
             },),),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (_) {
-              return Scaffold();
+              return AddCommunity(
+                addCommunity: addCommunity,
+              );
             }));
           },
           hoverColor: Colors.teal,
