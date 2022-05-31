@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../MainClasses/Community.dart';
+import 'PostScreen.dart';
 
 
 class ShowCommunityList extends StatefulWidget {
@@ -41,7 +42,7 @@ class _ShowCommunityListState extends State<ShowCommunityList> {
                 child: const Icon(Icons.keyboard_arrow_right),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return Scaffold();
+                    return PostScreen();
                   }));
                 },
               ),
