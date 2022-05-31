@@ -1,5 +1,7 @@
+import 'Post.dart';
 
 class Community {
+  List<Post> posts;
   String _communityName;
   String _networkURL;
   Community(String communityName, networkURL) {
@@ -17,5 +19,8 @@ class Community {
   }
   String getNetworkURL() {
     return _networkURL;
+  }
+  List<Post> getPosts() {
+    return posts;
   }
 }
