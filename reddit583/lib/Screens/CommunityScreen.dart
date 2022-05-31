@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../MainClasses/Community.dart';
+import 'ListOfCommunities.dart';
 
 
 class CommunityScreen extends StatefulWidget {
@@ -41,7 +42,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
           child: ListView.builder(
             itemCount: communities.length,
             itemBuilder: (context, index) {
-              return Scaffold();
+              return ShowCommunityList();
             },),),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
