@@ -3,6 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:reddit583/Screens/WelcomeScreen.dart';
+import 'package:reddit583/Screens/drawer.dart';
 import 'package:reddit583/pages/Community.dart';
 import 'package:reddit583/pages/Plus.dart';
 import 'package:reddit583/pages/Setting.dart';
@@ -17,9 +18,36 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  String _currentTab = 'Home';
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<double> _leftPosition;
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 500),
+    );
+    _leftPosition = Tween<double>(
+      begin: -300,
+      end: 20,
+    ).animate(
+      _controller,
+    );
+  }
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  String _currentTab = 'Home';
+  bool isClicked = true;
+  double turns = 0.0;
+  Color DarkGreen = const Color.fromARGB(255, 40, 90, 82);
+  Color LightGreen = const Color.fromARGB(255, 105, 231, 164);
   final Map<String, Widget> _children = {
     'Home': feed(),
     'Community': Community(),
@@ -35,161 +63,88 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    
-    return MaterialApp
-    (
-      theme:
-    new ThemeData(
-      primaryColor:  Color.fromARGB(255,40,90,82), // Your app THEME-COLOR
-    ),
-    home: Scaffold(
-      
-      drawer: Drawer(
-        backgroundColor: Color.fromARGB(255, 53,71,74),
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-              accountName: Text('Username'),
-              accountEmail: Text('Email'),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Text('U',style: TextStyle(color: Colors.black),),
-              ),
-            ),
-            ListTile(
-            leading: CircleAvatar(
-              child: Icon(
-                Icons.manage_accounts_outlined,
-                size: 35,
-                color: Color.fromARGB(255, 105,231,164),
-              ),
-              backgroundColor: Color.fromARGB(0, 255, 255, 255),
-            ),
-            title: Text('Account',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 105,231,164),
-                    fontSize: 20,
-                    fontFamily: 'Mazzard',
-                    fontWeight: FontWeight.bold)),
-            trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => accountPage()));
-            },
+    var size = MediaQuery.of(context).size;
+    return AnimatedBuilder(
+      animation: _controller,
+      builder: (context, child) {
+        return MaterialApp(
+          theme: new ThemeData(
+            primaryColor:
+                Color.fromARGB(255, 40, 90, 82), // Your app THEME-COLOR
           ),
-          ListTile(
-            leading: CircleAvatar(
-              child: Icon(
-                Icons.create_outlined,
-                size: 30,
-                color: Color.fromARGB(255, 105,231,164),
-              ),
-              backgroundColor: Color.fromARGB(0, 255, 255, 255),
-            ),
-            title: Text('Create Forum',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 105,231,164),
-                    fontSize: 20,
-                    fontFamily: 'Mazzard',
-                    fontWeight: FontWeight.bold)),
-            trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: CircleAvatar(
-              child: Icon(
-                Icons.bookmark_outline,
-                size: 30,
-                color: Color.fromARGB(255, 105,231,164),
-              ),
-              backgroundColor: Color.fromARGB(0, 255, 255, 255),
-            ),
-            title: Text('Saved Posts',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 105,231,164),
-                    fontSize: 20,
-                    fontFamily: 'Mazzard',
-                    fontWeight: FontWeight.bold)),
-            trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: () {},
-          ),
-          ListTile(
-            leading: CircleAvatar(
-              child: Icon(
-                Icons.info_outline_rounded,
-                size: 35,
-                color: Color.fromARGB(255, 105,231,164),
-              ),
-              backgroundColor: Color.fromARGB(0, 255, 255, 255),
-            ),
-            title: Text('About Us',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 105,231,164),
-                    fontSize: 20,
-                    fontFamily: 'Mazzard',
-                    fontWeight: FontWeight.bold)),
-            trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: () {},
-          ),
-            ListTile(
-              title: Text('Logout',style: TextStyle(
-                    color: Color.fromARGB(255, 105,231,164),
-                    fontSize: 20,
-                    fontFamily: 'Mazzard',
-                    fontWeight: FontWeight.bold)),
-              leading: Icon(Icons.exit_to_app,color: Color.fromARGB(255, 105,231,164),),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()));
-              },
-            ),
-          ],
-        ),
-      ),
-      backgroundColor: Color.fromARGB(255, 53,71,74),
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255,40,90,82),
-        foregroundColor: Color.fromARGB(255, 105,231,164),
-        elevation: 20.0,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return GestureDetector(
-              child: Image.asset("assets/images/imageedit_2_7305567590.png"),
-              onTap: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          },
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.switch_account),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => WelcomeScreen()),
-              );
-            },
-          ),
-        ],
-      ),
-      body: _children[_currentTab],
-      bottomNavigationBar: CurvedNavigationBar(
-        color: Color.fromARGB(255, 50, 113, 102),
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Color.fromARGB(255, 84, 191, 171),//Color.fromARGB(255,40,90,82),
-        items: <Widget>[
-          Icon(Icons.home_filled, size: 30),
-          Icon(Icons.explore, size: 30),
-          Icon(Icons.add, size: 30),
+          home: Scaffold(
+            backgroundColor: Color.fromARGB(255, 53, 71, 74),
+            appBar: AppBar(
+              backgroundColor: Color.fromARGB(255, 40, 90, 82),
+              foregroundColor: Color.fromARGB(255, 105, 231, 164),
+              elevation: 20.0,
+              leading: Center(
+                child: InkWell(
+                  onTap: _onTapMenu,
+                  child: AnimatedIcon(
+                    icon: AnimatedIcons.menu_arrow,
+                    progress: _controller.view,
 
-          Icon(Icons.settings, size: 30),
-        ],
-        onTap: (index) {
-          changePage(index);
-        },
-      ),),
+                    color: Color.fromARGB(255, 105, 231, 164),
+                  ),
+                ),
+              ),
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.switch_account),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WelcomeScreen()),
+                    );
+                  },
+                ),
+              ],
+            ),
+            body: Stack(
+              children: [
+                Container(
+                  child: _children[_currentTab],
+                  //color: Colors.white,
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 500),
+                  left: _leftPosition.value,
+                  top: 40,
+                  child: Opacity(
+                    opacity: _controller.value,
+                    child: child,
+                  )
+                ),
+              ],
+            ),
+            bottomNavigationBar: CurvedNavigationBar(
+              color: Color.fromARGB(255, 50, 113, 102),
+              buttonBackgroundColor: Colors.white,
+              backgroundColor: Color.fromARGB(
+                  255, 84, 191, 171), //Color.fromARGB(255,40,90,82),
+              items: <Widget>[
+                Icon(Icons.home_filled, size: 30),
+                Icon(Icons.explore, size: 30),
+                Icon(Icons.add, size: 30),
+                Icon(Icons.settings, size: 30),
+              ],
+              onTap: (index) {
+                changePage(index);
+              },
+            ),
+          ),
+        );
+      },
+      child: drawer(),
     );
+  }
+
+  void _onTapMenu() {
+    if(_controller.isCompleted) {
+      _controller.reverse();
+    } else {
+      _controller.forward();
+    }
   }
 }

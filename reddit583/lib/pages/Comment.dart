@@ -6,9 +6,16 @@ class Comment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Comment'),
-      color: Colors.yellow,
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 53, 71, 74),
+      body: Center(
+        child: Text('Feed',
+            style: TextStyle(
+                color: Color.fromARGB(255, 105, 231, 164),
+                fontSize: 20,
+                fontFamily: 'Mazzard',
+                fontWeight: FontWeight.bold)),
+      ),
     );
   }
 }
