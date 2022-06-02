@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="75b98bcc-2dfc-42df-b0ae-7d66df331e29" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/reddit583/lib/Screens/LoginScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/reddit583/lib/Screens/LoginScreen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reddit583/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/reddit583/pubspec.yaml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/reddit583/lib/Screens/AddPost.dart" beforeDir="false" afterPath="$PROJECT_DIR$/reddit583/lib/Screens/AddPost.dart" afterDir="false" />
+>>>>>>> 33f8f830ea90dd21738d4daf0ac72ebd5058a9bc
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +42,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/Reddit" />
+>>>>>>> 33f8f830ea90dd21738d4daf0ac72ebd5058a9bc
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -66,8 +74,12 @@
       <option name="presentableId" value="Default" />
       <updated>1653426262085</updated>
       <workItem from="1653426263266" duration="2235000" />
+<<<<<<< HEAD
       <workItem from="1653634936857" duration="89000" />
       <workItem from="1653649946705" duration="1843000" />
+=======
+      <workItem from="1653985973053" duration="6425000" />
+>>>>>>> 33f8f830ea90dd21738d4daf0ac72ebd5058a9bc
     </task>
     <servers />
   </component>

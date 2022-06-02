@@ -7,6 +7,8 @@ import 'package:reddit583/Screens/Home_page.dart';
 import 'package:reddit583/Screens/LoginScreen.dart';
 import 'package:reddit583/Screens/SignUpScreen.dart';
 
+import 'CommunityScreen.dart';
+
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
