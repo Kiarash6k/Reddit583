@@ -2,6 +2,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:reddit583/Screens/AddCommunity.dart';
+import 'package:reddit583/Screens/AddPost.dart';
+import 'package:reddit583/Screens/CommunityScreen.dart';
+import 'package:reddit583/Screens/PostScreen.dart';
 import 'package:reddit583/Screens/WelcomeScreen.dart';
 import 'package:reddit583/Screens/drawer.dart';
 import 'package:reddit583/pages/Community.dart';
@@ -43,15 +47,16 @@ class _MyHomePageState extends State<MyHomePage>
     super.dispose();
   }
 
+  Community x;
   String _currentTab = 'Home';
   bool isClicked = true;
   double turns = 0.0;
   Color DarkGreen = const Color.fromARGB(255, 40, 90, 82);
   Color LightGreen = const Color.fromARGB(255, 105, 231, 164);
   final Map<String, Widget> _children = {
-    'Home': feed(),
-    'Community': Community(),
-    'Plus': Plus(),
+    'Home': PostScreen(),
+    'Community': CommunityScreen(),
+    'Plus': AddPost(),
     'Settings': Setting(),
   };
 
@@ -84,7 +89,6 @@ class _MyHomePageState extends State<MyHomePage>
                   child: AnimatedIcon(
                     icon: AnimatedIcons.menu_arrow,
                     progress: _controller.view,
-
                     color: Color.fromARGB(255, 105, 231, 164),
                   ),
                 ),
@@ -108,14 +112,13 @@ class _MyHomePageState extends State<MyHomePage>
                   //color: Colors.white,
                 ),
                 AnimatedPositioned(
-                  duration: Duration(milliseconds: 500),
-                  left: _leftPosition.value,
-                  top: 40,
-                  child: Opacity(
-                    opacity: _controller.value,
-                    child: child,
-                  )
-                ),
+                    duration: Duration(milliseconds: 500),
+                    left: _leftPosition.value,
+                    top: 40,
+                    child: Opacity(
+                      opacity: _controller.value,
+                      child: child,
+                    )),
               ],
             ),
             bottomNavigationBar: CurvedNavigationBar(
@@ -141,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage>
   }
 
   void _onTapMenu() {
-    if(_controller.isCompleted) {
+    if (_controller.isCompleted) {
       _controller.reverse();
     } else {
       _controller.forward();

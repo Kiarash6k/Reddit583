@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reddit583/Screens/Home_page.dart';
 
 import '../MainClasses/Community.dart';
 
@@ -29,29 +30,25 @@ class _AddCommunityState extends State<AddCommunity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('reddit'),
-        centerTitle: true,
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.red,
-      ),
+      backgroundColor: Color.fromARGB(255, 53, 71, 74),
+      
       key: scaffoldKey,
       body: Column(
         children: [
           Container(
             alignment: Alignment.center,
             margin: EdgeInsets.only(top: 45.0, left: 40.0),
-            child: Text('Enter your community name : '),
+            child: Text('Enter your community name : \n', style: TextStyle(fontFamily: 'Montserrat',fontSize: 17.0, color: Color.fromARGB(255, 105, 231, 164)),),
           ),
           Container(
               alignment: Alignment.center,
-              width: 450.0,
+              width: MediaQuery.of(context).size.width * 0.8,
               margin: EdgeInsets.only(top: 15.0),
               child: TextField(
                 controller: communityNameController,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                  icon: Icon(Icons.people_alt_sharp, color: Colors.cyan,),
+                  icon: Icon(Icons.people_alt_sharp, color: Color.fromARGB(255, 105, 231, 164),),
                   errorText: communityNameError,
                   hintText: 'r/community',
                   enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -64,11 +61,11 @@ class _AddCommunityState extends State<AddCommunity> {
           ),
           Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.only(top: 25.0, left: 40.0),
+              margin: EdgeInsets.only(top: 25.0, left: 0.0),
               child: MaterialButton(
                 elevation: 12.0,
                 height: 50,
-                minWidth: 350,
+                minWidth: 240,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
                 onPressed: () {
                   String communityName = communityNameController.text;
@@ -80,17 +77,15 @@ class _AddCommunityState extends State<AddCommunity> {
                       communityNameError = null;
                       alarm = SnackBar(content: Text('$communityName created successfully!'));
                       scaffoldKey.currentState.showSnackBar(alarm);
-                      widget.addCommunity(Community('r/$communityName',
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJeC4q0PJmgrC4YdjhNFMdc1DxE7TayRRB1Q&usqp=CAU'));
-                      communityNameController.clear();
-                      Navigator.pop(context);
+                      
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                     }
                   });
                 },
                 color: Colors.teal,
                 child: Text('creat',
                     style: TextStyle(
-                      color: Colors.cyan,
+                      color: Color.fromARGB(255, 255, 255, 255),
                     )),
               )),
         ],

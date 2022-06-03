@@ -5,14 +5,15 @@ import '../MainClasses/Post.dart';
 import 'AddPost.dart';
 
 class PostScreen extends StatefulWidget {
-  Community community;
-  PostScreen(this.community, {Key key}) : super(key: key);
+  // Community community;
+  // PostScreen(this.community, {Key key}) : super(key: key);
 
   @override
   State<PostScreen> createState() => _PostScreenState();
 }
 
 class _PostScreenState extends State<PostScreen> {
+  Color LightGreen = const Color.fromARGB(255, 105, 231, 164);
   List<Post> posts = [];
   void addPost(Post post) {
     setState(() {
@@ -28,12 +29,7 @@ class _PostScreenState extends State<PostScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-            title: Text('reddit'),
-            backgroundColor: Colors.black,
-            foregroundColor: Colors.red,
-            centerTitle: true,
-          ),
+          backgroundColor: Color.fromARGB(255, 53, 71, 74),
           body: Center(
             child: ListView.builder(
               itemCount: posts.length,
@@ -43,6 +39,7 @@ class _PostScreenState extends State<PostScreen> {
             ),
           ),
           floatingActionButton: FloatingActionButton(
+            backgroundColor: LightGreen,
             child: Icon(Icons.add),
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (_) {

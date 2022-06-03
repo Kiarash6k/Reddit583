@@ -6,7 +6,7 @@ import 'ListOfCommunities.dart';
 
 
 class CommunityScreen extends StatefulWidget {
-  const CommunityScreen({Key key}) : super(key: key);
+
 
   @override
   State<CommunityScreen> createState() => _CommunityScreenState();
@@ -33,12 +33,8 @@ class _CommunityScreenState extends State<CommunityScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text('reddit'),
-          foregroundColor: Colors.red,
-          backgroundColor: Colors.black,
-          centerTitle: true,
-        ),
+        backgroundColor: Color.fromARGB(255, 53, 71, 74),
+        
         body: Center(
           child: ListView.builder(
             itemCount: communities.length,

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, file_names, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
+import 'package:reddit583/Screens/AddCommunity.dart';
 import 'package:reddit583/Screens/LoginScreen.dart';
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 
@@ -59,7 +60,11 @@ class _SettingState extends State<Setting> {
                     fontFamily: 'Mazzard',
                     fontWeight: FontWeight.bold)),
             trailing: Icon(Icons.keyboard_arrow_right),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AddCommunity()));
+            },
+            
           ),
           ListTile(
             leading: CircleAvatar(

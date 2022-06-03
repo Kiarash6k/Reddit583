@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reddit583/Screens/Home_page.dart';
 
 import '../MainClasses/Community.dart';
 import 'PostScreen.dart';
@@ -18,6 +19,7 @@ class _ShowCommunityListState extends State<ShowCommunityList> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Color.fromARGB(255, 40, 90, 82),
       shadowColor: Colors.teal,
       elevation: 8.0,
       child: ListTile(
@@ -41,9 +43,7 @@ class _ShowCommunityListState extends State<ShowCommunityList> {
               GestureDetector(
                 child: const Icon(Icons.keyboard_arrow_right),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return PostScreen(widget.community);
-                  }));
+                  
                 },
               ),
             ],

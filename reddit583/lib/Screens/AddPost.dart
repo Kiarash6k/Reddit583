@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:reddit583/Screens/Home_page.dart';
+import 'package:reddit583/Screens/PostScreen.dart';
 
 import '../MainClasses/Post.dart';
 
@@ -31,12 +33,7 @@ class _AddPostState extends State<AddPost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('reddit'),
-        centerTitle: true,
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.red,
-      ),
+      backgroundColor: Color.fromARGB(255, 53, 71, 74),
       key: scaffoldKey,
       body: Column(
         children: [
@@ -51,9 +48,9 @@ class _AddPostState extends State<AddPost> {
                   errorText: titleError,
                   hintText: 'post title',
                   enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                      borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 1.5)),
                   focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                      borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 1.5)),
                   contentPadding: EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
                 ),
               )
@@ -69,16 +66,16 @@ class _AddPostState extends State<AddPost> {
                   errorText: textError,
                   hintText: 'post text',
                   enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                      borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 1.5)),
                   focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                      borderSide: BorderSide(color: Colors.black, width: 1.5)),
+                      borderSide: BorderSide(color: Color.fromARGB(255, 105, 231, 164), width: 1.5)),
                   contentPadding: EdgeInsets.fromLTRB(16.0, 14.0, 16.0, 14.0),
                 ),
               )
           ),
           Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.only(top: 25.0, left: 23.0),
+              margin: EdgeInsets.only(top: 50.0, left:0),
               child: MaterialButton(
                 elevation: 12.0,
                 height: 50,
@@ -108,10 +105,14 @@ class _AddPostState extends State<AddPost> {
                       textError = null;
                       alarm = SnackBar(content: Text('post uploaded successfully!'));
                       scaffoldKey.currentState.showSnackBar(alarm);
-                      widget.addPost(Post(title, text, false, false, 0, false));
+                      //widget.addPost(Post(title, text, false, false, 0, false));
                       titleController.clear();
                       textController.clear();
-                      Navigator.pop(context);
+                      Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyHomePage()),
+                            );
                     }
                   });
                 },

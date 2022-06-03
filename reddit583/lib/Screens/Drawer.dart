@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '../pages/AccountPage.dart';
+import 'AddCommunity.dart';
 import 'LoginScreen.dart';
 
 class drawer extends StatelessWidget {
@@ -95,7 +96,11 @@ class drawer extends StatelessWidget {
                       fontFamily: 'Mazzard',
                       fontWeight: FontWeight.bold)),
               trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AddCommunity()));
+              
+              },
             ),
             ListTile(
               leading: CircleAvatar(
