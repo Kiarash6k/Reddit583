@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reddit583/Screens/tempPosts.dart';
 
 import '../MainClasses/Community.dart';
 import '../MainClasses/Post.dart';
@@ -32,9 +33,9 @@ class _PostScreenState extends State<PostScreen> {
           backgroundColor: Color.fromARGB(255, 53, 71, 74),
           body: Center(
             child: ListView.builder(
-              itemCount: posts.length,
+              itemCount: 1,
               itemBuilder: (context, index) {
-                return Scaffold();
+                return tempPosts();
               },
             ),
           ),

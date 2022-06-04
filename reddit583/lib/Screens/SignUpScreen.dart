@@ -142,9 +142,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         child: MaterialButton(
                           elevation: 12.0,
                           height: 5,
-
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20.0))),
                           onPressed: () {
+                            RegExp capitalLetter = new RegExp(r'[A-Z]');
+                            RegExp smallLetter = new RegExp(r'[a-z]');
+                            RegExp number = new RegExp(r'[0-9]');
+                            RegExp emailValidator = new RegExp(r'^\w+@gmail\.com$');
                             String username = user.text;
                             String emailAddress = email.text;
                             String password = pass.text;
@@ -153,17 +156,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             setState(() {
                               if(username.length < 4) {
                                 userError = 'username must be at least 4 characters';
-                              } else if(password.length < 8) {
+                              } else if(password.length < 8 ||
+                                  !capitalLetter.hasMatch(password) || !smallLetter.hasMatch(password) ||
+                              !number.hasMatch(password)) {
                                 userError = null;
                                 emailError = null;
                                 confirmPassError = null;
-                                passError = 'password must be at least 8 characters';
+                                passError = 'password must be at least 8 characters'
+                                    ' and contain at least one smallLetter, one capitalLetter and a number';
                               } else if (!(password == confirmedPassword)) {
                                 userError = null;
                                 emailError = null;
                                 passError = null;
                                 confirmPassError = 'does not match your password';
-                              }else {
+                              } else if (!emailValidator.hasMatch(emailAddress)) {
+                                userError = null;
+                                emailError = 'email is invalid';
+                                passError = null;
+                                confirmPassError = null;
+                              } else {
                                 userError = null;
                                 emailError = null;
                                 passError = null;

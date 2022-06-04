@@ -131,15 +131,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             String username = user.text;
                             String password = pass.text;
+                            RegExp capitalLetter = new RegExp(r'[A-Z]');
+                            RegExp smallLetter = new RegExp(r'[a-z]');
+                            RegExp number = new RegExp(r'[0-9]');
                             FocusScope.of(context).requestFocus(FocusNode());
                             setState(() {
                               if (username.length < 4) {
                                 userError =
                                     'username must be at least 4 characters';
-                              } else if (password.length < 8) {
+                              } else if (password.length < 8 ||
+                                  !capitalLetter.hasMatch(password) || !smallLetter.hasMatch(password) ||
+                                  !number.hasMatch(password)) {
                                 userError = null;
                                 passError =
-                                    'password must be at least 8 characters';
+                                    'password must be at least 8 characters'
+                                        ' and contain at least one smallLetter, one capitalLetter and a number';
                               } else {
                                 userError = null;
                                 passError = null;

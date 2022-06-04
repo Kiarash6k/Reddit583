@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../pages/AccountPage.dart';
 import 'AddCommunity.dart';
 import 'LoginScreen.dart';
+import 'about_us.dart';
 
 class drawer extends StatelessWidget {
   @override
@@ -136,7 +137,10 @@ class drawer extends StatelessWidget {
                       fontFamily: 'Mazzard',
                       fontWeight: FontWeight.bold)),
               trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => aboutUs()));
+              },
             ),
             ListTile(
               title: Text('Logout',
